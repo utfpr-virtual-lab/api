@@ -7,7 +7,5 @@ export type DecodedAuthToken = {
 
 export const decodedAuthTokenSchema = Joi.object({
     id: Joi.string().required(),
-    role: Joi.string().valid('user', 'admin'),
-})
-    .unknown(true)
-    .required();
+    role: Joi.string().valid('user', 'admin').required(),
+}).required();

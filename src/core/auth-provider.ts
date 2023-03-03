@@ -18,7 +18,7 @@ export class AuthProvider implements interfaces.AuthProvider {
                 return new AnonymousPrincipal();
             }
 
-            if (authorizationHeader.startsWith('BEARER ')) {
+            if (authorizationHeader.startsWith('Bearer ')) {
                 const token = authorizationHeader.slice(7);
                 const decodedAuthToken = await this.authService.verifyToken(token);
                 return new UserPrincipal(decodedAuthToken);

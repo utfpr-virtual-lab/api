@@ -1,4 +1,4 @@
-import { BaseHttpController, controller, httpGet, httpPost, request } from 'inversify-express-utils';
+import { BaseHttpController, controller, httpPost, request } from 'inversify-express-utils';
 import { getValidated } from '../utils/data-validation';
 import Joi from 'joi';
 import { Request } from 'express';
