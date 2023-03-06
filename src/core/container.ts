@@ -1,3 +1,8 @@
+import '../controller/auth';
+import '../controller/instance';
+import '../controller/template';
+import '../controller/user';
+
 import { Container } from 'inversify';
 import { JwtAuthService } from '../service/jwt-auth';
 import { CORE, DATA, INFRASTRUCTURE, SERVICE } from './types';
@@ -8,10 +13,6 @@ import { AuthenticatedMiddleware } from './middlewares/authenticated';
 import { InstanceService } from '../service/instance';
 import { TemplateService } from '../service/template';
 import { PrismaClient } from '@prisma/client';
-import '../controller/auth';
-import '../controller/instance';
-import '../controller/template';
-import '../controller/user-instance';
 import { UserData } from '../data/user';
 import { UserService } from '../service/user';
 import { InstanceData } from '../data/instance';
