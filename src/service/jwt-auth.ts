@@ -35,8 +35,8 @@ export class JwtAuthService implements AuthService {
         }
 
         const payload: DecodedAuthToken = {
-            id: username.slice(1),
-            role: 'user',
+            id: parseInt(username.slice(1)),
+            role: 'USER',
         };
 
         return jwt.sign(payload, process.env.JWT_SECRET || 'no-secret', {

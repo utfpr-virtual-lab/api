@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum AccessRole {
+  USER
+  ADMIN
+}
+
+model User {
+  id           Int        @id
+  role         AccessRole
+  maxInstances Int        @default(1)
+  instances    Instance[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Instance {
+  id        String   @id
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Template {
+  id           String   @id
+  url          String
+  os           String
+  instanceType String
+  memoryInGb   Int
+  storageInGb  Int
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}

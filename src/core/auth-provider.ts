@@ -25,8 +25,7 @@ export class AuthProvider implements interfaces.AuthProvider {
             }
 
             return new AnonymousPrincipal();
-        } catch (error) {
-            next(new Error('Forbidden'));
+        } catch {
             return new AnonymousPrincipal();
         }
     }
