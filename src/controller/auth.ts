@@ -19,7 +19,7 @@ export class AuthController extends BaseHttpController {
             password: string;
         };
 
-        const schema = Joi.object({
+        const schema = Joi.object<Payload>({
             username: Joi.string().required(),
             password: Joi.string().required(),
         })

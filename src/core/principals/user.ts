@@ -1,5 +1,6 @@
 import { Principal } from 'inversify-express-utils';
 import { DecodedAuthToken } from '../../model/decoded-auth-token';
+import { AccessRole } from '@prisma/client';
 
 export class UserPrincipal implements Principal {
     details: DecodedAuthToken;
@@ -12,7 +13,7 @@ export class UserPrincipal implements Principal {
         return Promise.resolve(true);
     }
 
-    async isInRole(role: string): Promise<boolean> {
+    async isInRole(role: keyof typeof AccessRole): Promise<boolean> {
         return Promise.resolve(role === this.details.role);
     }
 
